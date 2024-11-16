@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", async (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   const user = new User(req.body);
   try {
     await user.save();
@@ -31,7 +31,7 @@ app.get('/user' , async (req,res) => {
     res.send(users)
   }
   } catch (err) {
-    res.status(400).send("Error Saving the User", err.message);
+     res.status(400).send(`Error Saving the User: ${err.message}`);
   }
   
 })
@@ -42,7 +42,7 @@ app.get('/feed' , async (req,res)=> {
     const users = await User.find();
     res.send(users)
   } catch (err) {
-    res.status(400).send("Error Saving the User", err.message);
+     res.status(400).send(`Error Saving the User: ${err.message}`);
   }
 })
 
@@ -52,28 +52,29 @@ app.delete('/user' , async(req,res)=>{
      await User.findByIdAndDelete(userId);
     res.send("User Deleted Successfully")
   } catch (err) {
-    res.status(400).send("Error Saving the User", err.message);
+     res.status(400).send(`Error Saving the User: ${err.message}`);
   }
 })
 app.patch('/user',async(req,res)=>{
   const userId = req.body.userId;
   const data = req.body;
   try {
+    const ALLOWED_UPDATES = [""]
      await User.findByIdAndUpdate(userId, data);
     res.send("User Updated Successfully")
   } catch (err) {
-    res.status(400).send("Error Saving the User", err.message);
+     res.status(400).send(`Error Saving the User: ${err.message}`);
   }
 })
 
 
-
+const PORT = 7777 || '';
 connectDB()
   .then(() => {
     console.log("Database is connected");
     // for eslablish conntection will do app.listen here
-    app.listen(7777, () => {
-      console.log("Server is running successfully");
+    app.listen(PORT, () => {
+      console.log(`Server is running on ${PORT} successfully`);
     });
   })
   .catch((err) => {
