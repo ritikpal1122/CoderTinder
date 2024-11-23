@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Product Card Styles */
+/* Base Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+/* Product Card Styles */
+.creative-product-card {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creative-product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Discount Badge */
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 12px;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 24px;
+  color: #ccc;
+  z-index: 2;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.creative-product-card:hover .wishlist-icon {
+  color: #ff4757;
+  transform: scale(1.2);
+}
+
+/* Image Container */
+.image-container {
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.creative-product-card:hover .image-container img {
+  transform: scale(1.1);
+}
+
+/* Text Container */
+.text-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.text-container h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.text-container p {
+  margin: 5px 0 0;
+  font-size: 18px;
+  color: #777;
+}
+
+/* Hover Actions (Buttons) */
+.hover-actions {
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  transition: bottom 0.4s ease;
+}
+
+.creative-product-card:hover .hover-actions {
+  bottom: 20px;
+}
+
+.hover-actions button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease, background 0.3s ease;
+}
+
+.creative-product-card:hover .hover-actions button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hover-actions .add-to-cart {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.hover-actions .add-to-cart:hover {
+  background: #218838;
+}
+
+.hover-actions .buy-now {
+  background: linear-gradient(135deg, #ff7e5f, #eb3349);
+}
+
+.hover-actions .buy-now:hover {
+  background: #c82333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="creative-product-card">
+        <div class="discount-badge">20% OFF</div>
+        <div class="wishlist-icon">&#9825;</div>
+        <div class="image-container">
+          <img src="your-image-url.jpg" alt="Product Image" />
+        </div>
+        <div class="text-container">
+          <h3>Stylish Product</h3>
+          <p>$49.99</p>
+        </div>
+        <div class="hover-actions">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="buy-now">Buy Now</button>
+        </div>
+      </div>
+      
+      
+</body>
+</html>
